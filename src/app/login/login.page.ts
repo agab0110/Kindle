@@ -11,6 +11,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginPage implements OnInit {
   credentials: FormGroup;
+  private type: string = 'password';
+  private icon: string = 'eye-off-outline';
 
   constructor(
     private fb: FormBuilder,
@@ -72,6 +74,11 @@ export class LoginPage implements OnInit {
       buttons: ['Ok']
     });
     await alert.present();
+  }
+
+  public toggle() {
+    this.type = this.type === 'text' ? 'password': 'text';
+    this.icon = this.icon === 'eye-outline' ? 'eye-off-outline': 'eye-outline';
   }
 
 }
