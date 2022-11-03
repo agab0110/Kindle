@@ -13,8 +13,8 @@ import { RegistrationPage } from './registration.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ReactiveFormsModule,
-    RegistrationPageRoutingModule
+    RegistrationPageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [RegistrationPage]
 })

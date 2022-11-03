@@ -67,4 +67,7 @@ export class LoginPage implements OnInit {
     this.icon = this.icon === 'eye-outline' ? 'eye-off-outline': 'eye-outline';
   }
 
+  public goToRegistration() {
+    this.router.navigateByUrl('/registration', { replaceUrl: true });
+  }
 }

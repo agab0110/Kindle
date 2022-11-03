@@ -21,7 +21,7 @@
     </ion-item>
     
     <ion-button type="submit" expand="block" color="success" [disabled]="!credentials.valid">Login</ion-button>
-    <ion-button type="button" expand="block" color="secondary" [routerLink]="['/registration']">Create new account</ion-button>
+    <ion-button type="button" expand="block" color="secondary" (click)="goToRegistration()">Create new account</ion-button>
   
   </form>
 </ion-content>
