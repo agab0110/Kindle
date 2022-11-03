@@ -31,10 +31,15 @@ export class RegistrationPage implements OnInit {
     return this.registrationCredentials.get('password');
   }
 
+  get confirmPassword() {
+    return this.registrationCredentials.get('confirmPassword');
+  }
+
   ngOnInit() {
     this.registrationCredentials = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', Validators.required, Validators.minLength(6)]
     });
   }
 
