@@ -25,8 +25,6 @@
       <ion-label position="floating">Confirm password</ion-label>
       <ion-input [type]="type" formControlName="confirmPassword"></ion-input>
       <ion-icon (click)="toggle()" [name]="icon" slot="end"></ion-icon>
-      <ion-note slot="error" *ngIf="(confirmPassword.dirty || confirmPassword.touched) && confirmPassword.errors">Password must have at least 6 characters</ion-note>
-      <ion-note slot="error" *ngIf="confirmPassword != password">Password doesn't match</ion-note>
     </ion-item>
     
     <ion-button expand="full" color="success" type="submit" [disabled]="!credentials.valid">Register</ion-button>
