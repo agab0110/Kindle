@@ -11,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 })
 
 export class RegistrationPage implements OnInit {
-  registrationCredentials: FormGroup;
+  credentials: FormGroup;
   public type: string = 'password';
   public icon: string = 'eye-off-outline';
 
@@ -24,19 +24,19 @@ export class RegistrationPage implements OnInit {
   ) { }
 
   get email() {
-    return this.registrationCredentials.get('email');
+    return this.credentials.get('email');
   }
 
   get password() {
-    return this.registrationCredentials.get('password');
+    return this.credentials.get('password');
   }
 
   get confirmPassword() {
-    return this.registrationCredentials.get('confirmPassword');
+    return this.credentials.get('confirmPassword');
   }
 
   ngOnInit() {
-    this.registrationCredentials = this.fb.group({
+    this.credentials = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required, Validators.minLength(6)]
@@ -47,7 +47,7 @@ export class RegistrationPage implements OnInit {
     const loading = await this.loadingController.create();
     await loading.present();
 
-    const user = await this.authService.register(this.registrationCredentials.value);
+    const user = await this.authService.register(this.credentials.value);
 
     await loading.dismiss();
 

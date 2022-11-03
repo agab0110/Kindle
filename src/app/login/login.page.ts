@@ -66,8 +66,4 @@ export class LoginPage implements OnInit {
     this.type = this.type === 'text' ? 'password': 'text';
     this.icon = this.icon === 'eye-outline' ? 'eye-off-outline': 'eye-outline';
   }
-
-  public goToRegistration() {
-    this.router.navigateByUrl('/registration', { replaceUrl: true });
-  }
 }
