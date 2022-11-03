@@ -31,6 +31,7 @@ npm-debug.log*
 /platforms
 /plugins
 /www
+/.vscode
 
 # Firebase
 .firebase

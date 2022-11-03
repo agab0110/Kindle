@@ -1,11 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>Registration</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form [formGroup]="credentials" (ngSubmit)="login()">
+  <form [formGroup]="registrationCredentials" (ngSubmit)="register()">
 
     <ion-item fill="solid" class="ion-margin-bottom">
       <ion-label position="floating">Email</ion-label>
@@ -20,8 +21,7 @@
       <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Password must have at least 6 characters</ion-note>
     </ion-item>
     
-    <ion-button type="submit" expand="block" color="success" [disabled]="!credentials.valid">Login</ion-button>
-    <ion-button type="button" expand="block" color="secondary" [routerLink]="['/registration']">Create new account</ion-button>
-  
+    <ion-button expand="full" color="success" type="submit" [disabled]="!registrationCredentials.valid">Register</ion-button>
+    
   </form>
 </ion-content>

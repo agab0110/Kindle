@@ -5,13 +5,13 @@ import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-registration',
+  templateUrl: './registration.page.html',
+  styleUrls: ['./registration.page.scss'],
 })
 
-export class LoginPage implements OnInit {
-  credentials: FormGroup;
+export class RegistrationPage implements OnInit {
+  registrationCredentials: FormGroup;
   public type: string = 'password';
   public icon: string = 'eye-off-outline';
 
@@ -24,32 +24,33 @@ export class LoginPage implements OnInit {
   ) { }
 
   get email() {
-    return this.credentials.get('email');
+    return this.registrationCredentials.get('email');
   }
 
   get password() {
-    return this.credentials.get('password');
+    return this.registrationCredentials.get('password');
   }
 
   ngOnInit() {
-    this.credentials = this.fb.group({
+    this.registrationCredentials = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
-  async login() {
+  async register() {
     const loading = await this.loadingController.create();
     await loading.present();
 
-    const user = await this.authService.login(this.credentials.value);
+    const user = await this.authService.register(this.registrationCredentials.value);
 
     await loading.dismiss();
 
     if(user) {
+      this.showAlert('Registration success', 'Welcome');
       this.router.navigateByUrl('/home', { replaceUrl: true });
     } else {
-      this.showAlert('Login failed', 'Please try again');
+      this.showAlert('Registration failed', 'Please try again');
     }
   }
 
@@ -66,4 +67,5 @@ export class LoginPage implements OnInit {
     this.type = this.type === 'text' ? 'password': 'text';
     this.icon = this.icon === 'eye-outline' ? 'eye-off-outline': 'eye-outline';
   }
+
 }
