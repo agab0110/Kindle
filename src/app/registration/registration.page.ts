@@ -11,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 })
 
 export class RegistrationPage implements OnInit {
-  credentials: FormGroup;
+  registrationCredentials: FormGroup;
   public type: string = 'password';
   public icon: string = 'eye-off-outline';
 
@@ -24,15 +24,15 @@ export class RegistrationPage implements OnInit {
   ) { }
 
   get email() {
-    return this.credentials.get('email');
+    return this.registrationCredentials.get('email');
   }
 
   get password() {
-    return this.credentials.get('password');
+    return this.registrationCredentials.get('password');
   }
 
   ngOnInit() {
-    this.credentials = this.fb.group({
+    this.registrationCredentials = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
@@ -42,13 +42,13 @@ export class RegistrationPage implements OnInit {
     const loading = await this.loadingController.create();
     await loading.present();
 
-    const user = await this.authService.register(this.credentials.value);
+    const user = await this.authService.register(this.registrationCredentials.value);
 
     await loading.dismiss();
 
     if(user) {
-      this.showAlert('Registration success', 'Please login');
-      this.router.navigateByUrl('/login', { replaceUrl: true });
+      this.showAlert('Registration success', 'Welcome');
+      this.router.navigateByUrl('/home', { replaceUrl: true });
     } else {
       this.showAlert('Registration failed', 'Please try again');
     }
