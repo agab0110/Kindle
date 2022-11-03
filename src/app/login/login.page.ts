@@ -11,8 +11,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginPage implements OnInit {
   credentials: FormGroup;
-  private type: string = 'password';
-  private icon: string = 'eye-off-outline';
+  public type: string = 'password';
+  public icon: string = 'eye-off-outline';
 
   constructor(
     private fb: FormBuilder,
