@@ -6,6 +6,7 @@
 
 <ion-content class="ion-padding">
   <form [formGroup]="credentials" (ngSubmit)="login()">
+
     <ion-item fill="solid" class="ion-margin-bottom">
       <ion-label position="floating">Email</ion-label>
       <ion-input type="email" formControlName="email"></ion-input>
@@ -19,8 +20,8 @@
       <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Password must have at least 6 characters</ion-note>
     </ion-item>
     
-    <ion-button expand="full" color="success" type="submit" [disabled]="!credentials.valid">Login</ion-button>
-    <ion-button expand="full" color="danger" type="button" [routerLink]="['/registration']">Create new account</ion-button>
-    
+    <ion-button type="submit" expand="block" color="success" [disabled]="!credentials.valid">Login</ion-button>
+    <ion-button type="button" expand="block" color="secondary" [routerLink]="['/registration']">Create new account</ion-button>
   </form>
+    
 </ion-content>
