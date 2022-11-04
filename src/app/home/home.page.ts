@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController, AlertController, AnimationController } from '@ionic/angular';
+import { LoadingController, AnimationController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 
 @Component({
