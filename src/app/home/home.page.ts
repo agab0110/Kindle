@@ -12,7 +12,6 @@ export class HomePage {
 
   constructor(
     private loadingController: LoadingController,
-    private alertController: AlertController,
     private authService: AuthService,
     private router: Router,
     private animationCtrl: AnimationController
@@ -50,4 +49,14 @@ export class HomePage {
   leaveAnimation = (baseEl: HTMLElement) => {
     return this.enterAnimation(baseEl).direction('reverse');
   };
+
+  async openbBook1() {
+    const loading = await this.loadingController.create();
+
+    await loading.present();
+
+    
+
+    await loading.dismiss();
+  }
 }
