@@ -48,8 +48,8 @@ export class HomePage {
     await loading.dismiss();
 
     if(deletedUser) {
-      this.router.navigateByUrl('/login', { replaceUrl: true });
       this.authService.showAlert("Successo", "Utente eliminato con successo");
+      this.router.navigateByUrl('/', { replaceUrl: true });
     } else {
       this.authService.showAlert("Errore", "Errore nell'eliminazione");
     }

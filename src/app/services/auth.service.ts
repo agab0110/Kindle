@@ -43,7 +43,7 @@ export class AuthService {
     return signOut(this.auth);
   }
   
-  async delete() {
+  delete() {
     try {
       this.auth.currentUser.delete();
       return 1;
