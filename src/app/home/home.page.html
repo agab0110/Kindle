@@ -8,12 +8,15 @@
 
   <ion-content class="ion-padding">
     <ion-item>
-      <ion-button fill="clear" slot="start" (click)="logout()">
-        <ion-icon slot="icon-only" name="log-out"></ion-icon>
-        Logout
+      <ion-label>Light mode</ion-label>
+      <ion-toggle slot="start" [enableOnOffLabels]="true"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Logout</ion-label>
+      <ion-button slot="start" fill="clear" (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
       </ion-button>
     </ion-item>
-    
   </ion-content>
 
 </ion-menu>
