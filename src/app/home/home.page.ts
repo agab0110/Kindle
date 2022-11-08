@@ -14,7 +14,7 @@ export class HomePage {
     private loadingController: LoadingController,
     private authService: AuthService,
     private router: Router,
-    private animationCtrl: AnimationController
+    private animationCtrl: AnimationController,
   ) {}
 
   async logout() {
@@ -50,9 +50,8 @@ export class HomePage {
     return this.enterAnimation(baseEl).direction('reverse');
   };
 
-  async openbBook1() {
+  async openPdf() {
     const loading = await this.loadingController.create();
-
     await loading.present();
 
     

@@ -18,7 +18,7 @@
             <ion-header>
               <ion-toolbar>
                 <ion-buttons slot="start">
-                  <ion-button (click)="modal.dismiss()">Close</ion-button>
+                  <ion-button (click)="modal.dismiss()" (click)="openPdf()">Close</ion-button>
                 </ion-buttons>
               </ion-toolbar>
             </ion-header>
@@ -32,7 +32,7 @@
                 </p>
               </div>
             </ion-content>
-            <ion-button color="secondary" (click)="openbBook1()">Read the book</ion-button>
+            <ion-button color="secondary">Read the book</ion-button>
           </ng-template>
         </ion-modal>
       </ion-col>
