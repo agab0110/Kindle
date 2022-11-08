@@ -39,8 +39,6 @@ export class HomePage {
     await loading.dismiss();
   }
 
-  
-
   async deleteAccount() {
     const loading = await this.loadingController.create();
     await loading.present();
@@ -50,7 +48,7 @@ export class HomePage {
     await loading.dismiss();
 
     if(deletedUser) {
-      this.router.navigateByUrl('/', { replaceUrl: true });
+      this.router.navigateByUrl('/login', { replaceUrl: true });
       this.authService.showAlert("Successo", "Utente eliminato con successo");
     } else {
       this.authService.showAlert("Errore", "Errore nell'eliminazione");
