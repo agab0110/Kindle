@@ -56,7 +56,8 @@ export class HomePage {
     await loading.present();
 
     PSPDFKit.load({
-      document: documentUrl
+      document: documentUrl,
+      container: 'documentUrl'
     });
 
     await loading.dismiss();
