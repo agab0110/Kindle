@@ -13,11 +13,11 @@
       <ion-col>
         <img src="https://m.media-amazon.com/images/I/813azBbGnnL.jpg">
         <ion-button id="open-modal1" expand="block">Read more</ion-button>
-        <ion-modal #modal trigger="open-modal1" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
+        <ion-modal #modal1 trigger="open-modal1">
           <ng-template>
             <ion-header>
               <ion-toolbar>
-                <ion-button slot="start" (click)="modal.dismiss()">Close</ion-button>
+                <ion-button slot="start" (click)="modal1.dismiss()">Close</ion-button>
               </ion-toolbar>
             </ion-header>
             <ion-content>
@@ -40,12 +40,12 @@
       <ion-col>
         <img src="https://m.media-amazon.com/images/I/91HfhLiOzyL.jpg">
         <ion-button id="open-modal2" expand="block">Read more</ion-button>
-        <ion-modal #modal trigger="open-modal2" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
+        <ion-modal #modal2 trigger="open-modal2">
           <ng-template>
             <ion-header>
               <ion-toolbar>
                 <ion-buttons slot="start">
-                  <ion-button (click)="modal.dismiss()">Close</ion-button>
+                  <ion-button (click)="modal2.dismiss()">Close</ion-button>
                 </ion-buttons>
               </ion-toolbar>
             </ion-header>
@@ -69,12 +69,12 @@
       <ion-col>
         <img src="https://m.media-amazon.com/images/I/91AlxXCh2SL.jpg">
         <ion-button id="open-modal3" expand="block">Read more</ion-button>
-        <ion-modal #modal trigger="open-modal3" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
+        <ion-modal #modal3 trigger="open-modal3">
           <ng-template>
             <ion-header>
               <ion-toolbar>
                 <ion-buttons slot="start">
-                  <ion-button (click)="modal.dismiss()">Close</ion-button>
+                  <ion-button (click)="modal3.dismiss()">Close</ion-button>
                 </ion-buttons>
               </ion-toolbar>
             </ion-header>
@@ -96,12 +96,12 @@
       <ion-col>
         <img src="https://m.media-amazon.com/images/I/91sJm25RjuL.jpg">
         <ion-button id="open-modal4" expand="block">Read more</ion-button>
-        <ion-modal #modal trigger="open-modal4" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
+        <ion-modal #modal4 trigger="open-modal4">
           <ng-template>
             <ion-header>
               <ion-toolbar>
                 <ion-buttons slot="start">
-                  <ion-button (click)="modal.dismiss()">Close</ion-button>
+                  <ion-button (click)="modal4.dismiss()">Close</ion-button>
                 </ion-buttons>
               </ion-toolbar>
             </ion-header>
@@ -124,12 +124,12 @@
       <ion-col>
         <img src="https://m.media-amazon.com/images/I/91nsgvzjqJL.jpg">
         <ion-button id="open-modal5" expand="block">Read more</ion-button>
-        <ion-modal #modal trigger="open-modal5" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
+        <ion-modal #modal5 trigger="open-modal5">
           <ng-template>
             <ion-header>
               <ion-toolbar>
                 <ion-buttons slot="start">
-                  <ion-button (click)="modal.dismiss()">Close</ion-button>
+                  <ion-button (click)="modal5.dismiss()">Close</ion-button>
                 </ion-buttons>
               </ion-toolbar>
             </ion-header>
@@ -150,12 +150,12 @@
       <ion-col>
         <img src="https://m.media-amazon.com/images/I/A1wUgQbXfgL.jpg">
         <ion-button id="open-modal6" expand="block">Read more</ion-button>
-        <ion-modal #modal trigger="open-modal6" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
+        <ion-modal #modal6 trigger="open-modal6">
           <ng-template>
             <ion-header>
               <ion-toolbar>
                 <ion-buttons slot="start">
-                  <ion-button (click)="modal.dismiss()">Close</ion-button>
+                  <ion-button (click)="modal6.dismiss()">Close</ion-button>
                 </ion-buttons>
               </ion-toolbar>
             </ion-header>
@@ -175,33 +175,33 @@
       </ion-col>
     </ion-row>
     <ion-row>
-        <!-- libro 7 -->
-        <ion-col>
-          <img src="https://m.media-amazon.com/images/I/71DCa-1brTL.jpg">
-          <ion-button id="open-modal7" expand="block">Read more</ion-button>
-          <ion-modal #modal trigger="open-modal7" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
-            <ng-template>
-              <ion-header>
-                <ion-toolbar>
-                  <ion-buttons slot="start">
-                    <ion-button (click)="modal.dismiss()">Close</ion-button>
-                  </ion-buttons>
-                </ion-toolbar>
-              </ion-header>
-              <ion-content>
-                <div id = "container">
-                  <p>
-                    Autrice: J. K. Rowling<br>
-                    Anno di rilascio: 2007<br>
-                    Trama: Lord Voldemort tenta di assassinare Harry, ma una reazione inattesa tra le loro due bacchette glielo impedisce.
-                    Harry e i suoi amici Ron Weasley e Hermione Granger non intendono presentarsi a Hogwarts per il loro settimo e 
-                    ultimo anno di studi per dedicarsi invece alla ricerca degli Horcrux di Voldemort.
-                </div>
-              </ion-content>
-              <ion-button>Read the book</ion-button>
-            </ng-template>
-          </ion-modal>
-        </ion-col>
+      <!-- libro 7 -->
+      <ion-col>
+        <img src="https://m.media-amazon.com/images/I/71DCa-1brTL.jpg">
+        <ion-button id="open-modal7" expand="block">Read more</ion-button>
+        <ion-modal #modal7 trigger="open-modal7">
+          <ng-template>
+            <ion-header>
+              <ion-toolbar>
+                <ion-buttons slot="start">
+                  <ion-button (click)="modal7.dismiss()">Close</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content>
+              <div id = "container">
+                <p>
+                  Autrice: J. K. Rowling<br>
+                  Anno di rilascio: 2007<br>
+                  Trama: Lord Voldemort tenta di assassinare Harry, ma una reazione inattesa tra le loro due bacchette glielo impedisce.
+                  Harry e i suoi amici Ron Weasley e Hermione Granger non intendono presentarsi a Hogwarts per il loro settimo e 
+                  ultimo anno di studi per dedicarsi invece alla ricerca degli Horcrux di Voldemort.
+              </div>
+            </ion-content>
+            <ion-button>Read the book</ion-button>
+          </ng-template>
+        </ion-modal>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

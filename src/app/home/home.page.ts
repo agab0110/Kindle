@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController, AnimationController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
-import PSPDFKit from "pspdfkit";
+import PSPDFKit from 'pspdfkit';
 
 @Component({
   selector: 'app-home',
@@ -19,37 +19,14 @@ export class HomePage {
   ) {}
 
   async logout() {
+    const loading = await this.loadingController.create();
+    await loading.present();
+
     await this.authService.logout();
     this.router.navigateByUrl('/', { replaceUrl: true });
+
+    await loading.dismiss();
   }
-
-  enterAnimation = (baseEl: HTMLElement) => {
-    const root = baseEl.shadowRoot;
-
-    const backdropAnimation = this.animationCtrl
-      .create()
-      .addElement(root.querySelector('ion-backdrop')!)
-      .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
-
-    const wrapperAnimation = this.animationCtrl
-      .create()
-      .addElement(root.querySelector('.modal-wrapper')!)
-      .keyframes([
-        { offset: 0, opacity: '0', transform: 'scale(0)' },
-        { offset: 1, opacity: '0.99', transform: 'scale(1)' },
-      ]);
-
-    return this.animationCtrl
-      .create()
-      .addElement(baseEl)
-      .easing('ease-out')
-      .duration(500)
-      .addAnimation([backdropAnimation, wrapperAnimation]);
-  };
-
-  leaveAnimation = (baseEl: HTMLElement) => {
-    return this.enterAnimation(baseEl).direction('reverse');
-  };
 
   async openPdf(documentUrl: string) {
     const loading = await this.loadingController.create();
@@ -57,7 +34,7 @@ export class HomePage {
 
     PSPDFKit.load({
       document: documentUrl,
-      container: 'documentUrl'
+      container: ''
     });
 
     await loading.dismiss();
