@@ -38,6 +38,5 @@ export class AuthService {
   logout() {
     return signOut(this.auth);
   }
-
   
 }
