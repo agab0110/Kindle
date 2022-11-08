@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, user } from '@angular/fire/auth';
 import { signOut } from '@firebase/auth';
 
 @Injectable({
@@ -39,4 +39,13 @@ export class AuthService {
     return signOut(this.auth);
   }
   
+  async delete() {
+    try {
+      this.auth.currentUser.delete();
+      return 1;
+    } catch (e) {
+      return null;
+    }
+  }
+
 }
