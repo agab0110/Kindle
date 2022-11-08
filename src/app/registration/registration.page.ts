@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -18,7 +18,6 @@ export class RegistrationPage implements OnInit {
   constructor(
     private fb: FormBuilder,
     private loadingController: LoadingController,
-    private alertController: AlertController,
     private authService: AuthService,
     private router: Router
   ) { }
@@ -47,20 +46,11 @@ export class RegistrationPage implements OnInit {
     await loading.dismiss();
 
     if(user) {
-      this.showAlert('Registration success', 'Welcome');
+      this.authService.showAlert('Registration success', 'Welcome');
       this.router.navigateByUrl('/home', { replaceUrl: true });
     } else {
-      this.showAlert('Registration failed', 'Please try again');
+      this.authService.showAlert('Registration failed', 'Please try again');
     }
-  }
-
-  async showAlert(header, message) {
-    const alert = await this.alertController.create({
-      header,
-      message,
-      buttons: ['Ok']
-    });
-    await alert.present();
   }
 
   public toggle() {

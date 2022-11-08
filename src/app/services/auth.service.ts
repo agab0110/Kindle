@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, user } from '@angular/fire/auth';
 import { signOut } from '@firebase/auth';
+import { AlertController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private auth: Auth) {}
+  constructor(
+    private auth: Auth,
+    private alertController: AlertController
+  ) {}
 
   async register({ email, password }) {
     try {
@@ -46,6 +50,15 @@ export class AuthService {
     } catch (e) {
       return null;
     }
+  }
+
+  async showAlert(header, message) {
+    const alert = await this.alertController.create({
+      header,
+      message,
+      buttons: ['Ok']
+    });
+    await alert.present();
   }
 
 }

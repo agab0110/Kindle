@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController, AlertController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import PSPDFKit from 'pspdfkit';
 
@@ -13,7 +13,6 @@ export class HomePage {
 
   constructor(
     private loadingController: LoadingController,
-    private alertController: AlertController,
     private authService: AuthService,
     private router: Router,
   ) {}
@@ -40,14 +39,7 @@ export class HomePage {
     await loading.dismiss();
   }
 
-  async showAlert(header, message) {
-    const alert = await this.alertController.create({
-      header,
-      message,
-      buttons: ['Ok']
-    });
-    await alert.present();
-  }
+  
 
   async deleteAccount() {
     const loading = await this.loadingController.create();
@@ -58,10 +50,10 @@ export class HomePage {
     await loading.dismiss();
 
     if(deletedUser) {
-      this.router.navigateByUrl('/login', { replaceUrl: true });
-      this.showAlert("Successo", "Utente eliminato con successo");
+      this.router.navigateByUrl('/', { replaceUrl: true });
+      this.authService.showAlert("Successo", "Utente eliminato con successo");
     } else {
-      this.showAlert("Errore", "Errore nell'eliminazione");
+      this.authService.showAlert("Errore", "Errore nell'eliminazione");
     }
   }
 
