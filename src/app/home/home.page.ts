@@ -1,53 +1,60 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController, AlertController, AnimationController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
+import PSPDFKit from 'pspdfkit';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage { 
 
   constructor(
     private loadingController: LoadingController,
-    private alertController: AlertController,
     private authService: AuthService,
     private router: Router,
-    private animationCtrl: AnimationController
   ) {}
 
   async logout() {
+    const loading = await this.loadingController.create();
+    await loading.present();
+
     await this.authService.logout();
     this.router.navigateByUrl('/', { replaceUrl: true });
+
+    await loading.dismiss();
   }
 
-  enterAnimation = (baseEl: HTMLElement) => {
-    const root = baseEl.shadowRoot;
+  async openPdf(documentUrl: string) {
+    const loading = await this.loadingController.create();
+    await loading.present();
 
-    const backdropAnimation = this.animationCtrl
-      .create()
-      .addElement(root.querySelector('ion-backdrop')!)
-      .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
+    PSPDFKit.load({
+      document: documentUrl,
+      container: '',
+      printMode: 'EXPORT_PDF',
+      disableTextSelection: true
+    });
 
-    const wrapperAnimation = this.animationCtrl
-      .create()
-      .addElement(root.querySelector('.modal-wrapper')!)
-      .keyframes([
-        { offset: 0, opacity: '0', transform: 'scale(0)' },
-        { offset: 1, opacity: '0.99', transform: 'scale(1)' },
-      ]);
+    await loading.dismiss();
+  }
 
-    return this.animationCtrl
-      .create()
-      .addElement(baseEl)
-      .easing('ease-out')
-      .duration(500)
-      .addAnimation([backdropAnimation, wrapperAnimation]);
-  };
+  async deleteAccount() {
+    const loading = await this.loadingController.create();
+    await loading.present();
 
-  leaveAnimation = (baseEl: HTMLElement) => {
-    return this.enterAnimation(baseEl).direction('reverse');
-  };
+    const deletedUser = this.authService.delete();
+
+    await loading.dismiss();
+
+    if(deletedUser) {
+      this.authService.showAlert("Successo", "Utente eliminato con successo");
+      this.router.navigateByUrl('/', { replaceUrl: true });
+    } else {
+      this.authService.showAlert("Errore", "Errore nell'eliminazione");
+    }
+  }
+
 }
