@@ -57,9 +57,5 @@ export class HomePage {
       this.authService.showAlert("Errore", "Errore nell'eliminazione");
     }
   }
-
-  public toggle() {
-    this.icon = this.icon === 'sunny-outline' ? 'moon-outline': 'sunny-outline';
-  }
-
+  
 }
