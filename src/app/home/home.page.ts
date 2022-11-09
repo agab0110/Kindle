@@ -9,7 +9,7 @@ import PSPDFKit from 'pspdfkit';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage { 
 
   constructor(
     private loadingController: LoadingController,
@@ -33,8 +33,9 @@ export class HomePage {
 
     PSPDFKit.load({
       document: documentUrl,
-      container: 'gs://project-87ed6.appspot.com/b1.pdf',
-      printMode: 'EXPORT_PDF'
+      container: '',
+      printMode: 'EXPORT_PDF',
+      disableTextSelection: true
     });
 
     await loading.dismiss();
