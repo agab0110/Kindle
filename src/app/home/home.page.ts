@@ -33,7 +33,8 @@ export class HomePage {
 
     PSPDFKit.load({
       document: documentUrl,
-      container: ''
+      container: 'gs://project-87ed6.appspot.com/b1.pdf',
+      printMode: 'EXPORT_PDF'
     });
 
     await loading.dismiss();
