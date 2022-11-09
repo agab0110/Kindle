@@ -10,6 +10,7 @@ import PSPDFKit from 'pspdfkit';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage { 
+  public icon: string = 'sunny-outline';
 
   constructor(
     private loadingController: LoadingController,
@@ -55,6 +56,10 @@ export class HomePage {
     } else {
       this.authService.showAlert("Errore", "Errore nell'eliminazione");
     }
+  }
+
+  public toggle() {
+    this.icon = this.icon === 'sunny-outline' ? 'moon-outline': 'sunny-outline';
   }
 
 }

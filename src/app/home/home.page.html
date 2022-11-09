@@ -1,243 +1,216 @@
-<ion-menu contentId="main-content" side="start" type="push">
-  
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-      <ion-menu-toggle slot="end">
-        <ion-button fill="clear">
-          <ion-icon slot="icon-only" name="close-outline"></ion-icon>
-        </ion-button>
-      </ion-menu-toggle>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-fab slot="fixed" vertical="top" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="grid-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="bottom">
+      <ion-fab-button (click)="toggle()">
+        <ion-icon [name]="icon"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="deleteAccount()">
+        <ion-icon name="trash-bin-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 
-  <ion-content class="ion-padding">
-    <ion-list>
-      <ion-item>
-        <ion-toggle slot="start" [enableOnOffLabels]="true"></ion-toggle>
-        Light mode
-      </ion-item>
-      <ion-item>
-        <ion-button slot="start" fill="clear" (click)="logout()">
-          <ion-icon name="log-out"></ion-icon>
-        </ion-button>
-        Logout
-      </ion-item>
-      <ion-item>
-        <ion-button fill="clear" (click)="deleteAccount()">
-          Delete account
-        </ion-button>
-      </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
-<div class="ion-page" id="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content>
-    <ion-grid>
-      <ion-row>
-        <!-- libro 1 -->
-        <ion-col>
-          <img src="https://m.media-amazon.com/images/I/813azBbGnnL.jpg">
-          <ion-button id="open-modal1" expand="block">Read more</ion-button>
-          <ion-modal #modal1 trigger="open-modal1">
-            <ng-template>
-              <ion-header>
-                <ion-toolbar>
-                  <ion-button slot="start" fill="clear" (click)="modal1.dismiss()">Close</ion-button>
-                </ion-toolbar>
-              </ion-header>
-              <ion-content>
-                <div id="container">
-                  <p>
-                    Autrice: J. K. Rowling<br>
-                    Anno di rilascio: 1997<br>
-                    Trama: A 11 anni, Harry Potter scopre di essere il figlio orfano di due potenti maghi.
-                    Frequenta la scuola di magia e stregoneria di Hogwarts dove scopre la verità su se stesso e sulla morte dei suoi genitori.
-                  </p>
-                </div>
-              </ion-content>
-              <ion-button color="secondary" (click)="openPdf('')">
-                Read the book 
-              </ion-button>
-            </ng-template>
-          </ion-modal>
-        </ion-col>
-        <!-- libro 2 -->
-        <ion-col>
-          <img src="https://m.media-amazon.com/images/I/91HfhLiOzyL.jpg">
-          <ion-button id="open-modal2" expand="block">Read more</ion-button>
-          <ion-modal #modal2 trigger="open-modal2">
-            <ng-template>
-              <ion-header>
-                <ion-toolbar>
-                  <ion-buttons slot="start">
-                    <ion-button (click)="modal2.dismiss()">Close</ion-button>
-                  </ion-buttons>
-                </ion-toolbar>
-              </ion-header>
-              <ion-content>
-                <div id = "container">
-                  <p>
-                    Autrice: J. K. Rowling<br>
-                    Anno di rilascio: 1998<br>
-                    Trama: Il secondo anno ad Hogwarts si rivela denso di pericoli per Harry Potter e i suoi amici:
-                    un mostro misterioso si aggira per la scuola pietrificando i maghi mezzosangue figli di babbani, e tutti incolpano Harry.
-                  </p>
-                </div>
-              </ion-content>
-              <ion-button>Read the book</ion-button>
-            </ng-template>
-          </ion-modal>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <!-- libro 3 -->
-        <ion-col>
-          <img src="https://m.media-amazon.com/images/I/91AlxXCh2SL.jpg">
-          <ion-button id="open-modal3" expand="block">Read more</ion-button>
-          <ion-modal #modal3 trigger="open-modal3">
-            <ng-template>
-              <ion-header>
-                <ion-toolbar>
-                  <ion-buttons slot="start">
-                    <ion-button (click)="modal3.dismiss()">Close</ion-button>
-                  </ion-buttons>
-                </ion-toolbar>
-              </ion-header>
-              <ion-content>
-                <div id = "container">
-                  <p>
-                    Autrice: J. K. Rowling<br>
-                    Anno di rilascio: 1999<br>
-                    Trama: Harry Potter sta frequentando il terzo anno a Hogwarts e questa volta deve difendersi da un pericoloso assassino, 
-                    Sirius Black, scappato dalla sorvegliata prigione per maghi di Azkaban e legato alla famiglia del piccolo mago.
-                  </p>
-                </div>
-              </ion-content>
-              <ion-button>Read the book</ion-button>
-            </ng-template>
-          </ion-modal>
-        </ion-col>
-        <!-- libro 4 -->
-        <ion-col>
-          <img src="https://m.media-amazon.com/images/I/91sJm25RjuL.jpg">
-          <ion-button id="open-modal4" expand="block">Read more</ion-button>
-          <ion-modal #modal4 trigger="open-modal4">
-            <ng-template>
-              <ion-header>
-                <ion-toolbar>
-                  <ion-buttons slot="start">
-                    <ion-button (click)="modal4.dismiss()">Close</ion-button>
-                  </ion-buttons>
-                </ion-toolbar>
-              </ion-header>
-              <ion-content>
-                <div id = "container">
-                  <p>
-                    Autrice: J. K. Rowling<br>
-                    Anno di rilascio: 2000<br>
-                    Trama: Il quarto anno di Harry a Hogwarts è contrassegnato dal torneo di Tremaghi,
-                    nel quale i rappresentanti di ogni scuola di magia devono sfidarsi in alcune gare.
-                </div>
-              </ion-content>
-              <ion-button>Read the book</ion-button>
-            </ng-template>
-          </ion-modal>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <!-- libro 5 -->
-        <ion-col>
-          <img src="https://m.media-amazon.com/images/I/91nsgvzjqJL.jpg">
-          <ion-button id="open-modal5" expand="block">Read more</ion-button>
-          <ion-modal #modal5 trigger="open-modal5">
-            <ng-template>
-              <ion-header>
-                <ion-toolbar>
-                  <ion-buttons slot="start">
-                    <ion-button (click)="modal5.dismiss()">Close</ion-button>
-                  </ion-buttons>
-                </ion-toolbar>
-              </ion-header>
-              <ion-content>
-                <div id = "container">
-                  <p>
-                    Autrice: J. K. Rowling<br>
-                    Anno di rilascio: 2003<br>
-                    Trama: Mentre si trova confinato contro la sua volontà a Privet Drive, Harry scopre che Albus Silente è a capo di 
-                    una organizzazione segreta che ha il compito di contrapporsi e possibilmente sconfiggere Lord Voldemort.
-                </div>
-              </ion-content>
-              <ion-button>Read the book</ion-button>
-            </ng-template>
-          </ion-modal>
-        </ion-col>
-        <!-- libro 6 -->
-        <ion-col>
-          <img src="https://m.media-amazon.com/images/I/A1wUgQbXfgL.jpg">
-          <ion-button id="open-modal6" expand="block">Read more</ion-button>
-          <ion-modal #modal6 trigger="open-modal6">
-            <ng-template>
-              <ion-header>
-                <ion-toolbar>
-                  <ion-buttons slot="start">
-                    <ion-button (click)="modal6.dismiss()">Close</ion-button>
-                  </ion-buttons>
-                </ion-toolbar>
-              </ion-header>
-              <ion-content>
-                <div id = "container">
-                  <p>
-                    Autrice: J. K. Rowling<br>
-                    Anno di rilascio: 2005<br>
-                    Trama: Lord Voldemort stringe la sua presa sia sul mondo dei babbani che su quello dei maghi, 
-                    Hogwarts non è più un rifugio sicuro. Harry sospetta che i pericoli possano nascondersi addirittura all'interno del 
-                    castello, ma Silente è deciso a prepararsi per lo scontro conclusivo che sembra prossimo.
-                </div>
-              </ion-content>
-              <ion-button>Read the book</ion-button>
-            </ng-template>
-          </ion-modal>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <!-- libro 7 -->
-        <ion-col>
-          <img src="https://m.media-amazon.com/images/I/71DCa-1brTL.jpg">
-          <ion-button id="open-modal7" expand="block">Read more</ion-button>
-          <ion-modal #modal7 trigger="open-modal7">
-            <ng-template>
-              <ion-header>
-                <ion-toolbar>
-                  <ion-buttons slot="start">
-                    <ion-button (click)="modal7.dismiss()">Close</ion-button>
-                  </ion-buttons>
-                </ion-toolbar>
-              </ion-header>
-              <ion-content>
-                <div id = "container">
-                  <p>
-                    Autrice: J. K. Rowling<br>
-                    Anno di rilascio: 2007<br>
-                    Trama: Lord Voldemort tenta di assassinare Harry, ma una reazione inattesa tra le loro due bacchette glielo impedisce.
-                    Harry e i suoi amici Ron Weasley e Hermione Granger non intendono presentarsi a Hogwarts per il loro settimo e 
-                    ultimo anno di studi per dedicarsi invece alla ricerca degli Horcrux di Voldemort.
-                </div>
-              </ion-content>
-              <ion-button>Read the book</ion-button>
-            </ng-template>
-          </ion-modal>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-content>
-</div>
+  <ion-grid>
+    <ion-row>
+      <!-- libro 1 -->
+      <ion-col>
+        <img src="https://m.media-amazon.com/images/I/813azBbGnnL.jpg">
+        <ion-button id="open-modal1" expand="block">Read more</ion-button>
+        <ion-modal #modal1 trigger="open-modal1">
+          <ng-template>
+            <ion-header>
+              <ion-toolbar>
+                <ion-button slot="start" fill="clear" (click)="modal1.dismiss()">Close</ion-button>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content>
+              <div id="container">
+                <p>
+                  Autrice: J. K. Rowling<br>
+                  Anno di rilascio: 1997<br>
+                  Trama: A 11 anni, Harry Potter scopre di essere il figlio orfano di due potenti maghi.
+                  Frequenta la scuola di magia e stregoneria di Hogwarts dove scopre la verità su se stesso e sulla morte dei suoi genitori.
+                </p>
+              </div>
+            </ion-content>
+            <ion-button color="secondary" (click)="openPdf('')">
+              Read the book 
+            </ion-button>
+          </ng-template>
+        </ion-modal>
+      </ion-col>
+      <!-- libro 2 -->
+      <ion-col>
+        <img src="https://m.media-amazon.com/images/I/91HfhLiOzyL.jpg">
+        <ion-button id="open-modal2" expand="block">Read more</ion-button>
+        <ion-modal #modal2 trigger="open-modal2">
+          <ng-template>
+            <ion-header>
+              <ion-toolbar>
+                <ion-buttons slot="start">
+                  <ion-button (click)="modal2.dismiss()">Close</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content>
+              <div id = "container">
+                <p>
+                  Autrice: J. K. Rowling<br>
+                  Anno di rilascio: 1998<br>
+                  Trama: Il secondo anno ad Hogwarts si rivela denso di pericoli per Harry Potter e i suoi amici:
+                  un mostro misterioso si aggira per la scuola pietrificando i maghi mezzosangue figli di babbani, e tutti incolpano Harry.
+                </p>
+              </div>
+            </ion-content>
+            <ion-button>Read the book</ion-button>
+          </ng-template>
+        </ion-modal>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <!-- libro 3 -->
+      <ion-col>
+        <img src="https://m.media-amazon.com/images/I/91AlxXCh2SL.jpg">
+        <ion-button id="open-modal3" expand="block">Read more</ion-button>
+        <ion-modal #modal3 trigger="open-modal3">
+          <ng-template>
+            <ion-header>
+              <ion-toolbar>
+                <ion-buttons slot="start">
+                  <ion-button (click)="modal3.dismiss()">Close</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content>
+              <div id = "container">
+                <p>
+                  Autrice: J. K. Rowling<br>
+                  Anno di rilascio: 1999<br>
+                  Trama: Harry Potter sta frequentando il terzo anno a Hogwarts e questa volta deve difendersi da un pericoloso assassino, 
+                  Sirius Black, scappato dalla sorvegliata prigione per maghi di Azkaban e legato alla famiglia del piccolo mago.
+                </p>
+              </div>
+            </ion-content>
+            <ion-button>Read the book</ion-button>
+          </ng-template>
+        </ion-modal>
+      </ion-col>
+      <!-- libro 4 -->
+      <ion-col>
+        <img src="https://m.media-amazon.com/images/I/91sJm25RjuL.jpg">
+        <ion-button id="open-modal4" expand="block">Read more</ion-button>
+        <ion-modal #modal4 trigger="open-modal4">
+          <ng-template>
+            <ion-header>
+              <ion-toolbar>
+                <ion-buttons slot="start">
+                  <ion-button (click)="modal4.dismiss()">Close</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content>
+              <div id = "container">
+                <p>
+                  Autrice: J. K. Rowling<br>
+                  Anno di rilascio: 2000<br>
+                  Trama: Il quarto anno di Harry a Hogwarts è contrassegnato dal torneo di Tremaghi,
+                  nel quale i rappresentanti di ogni scuola di magia devono sfidarsi in alcune gare.
+              </div>
+            </ion-content>
+            <ion-button>Read the book</ion-button>
+          </ng-template>
+        </ion-modal>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <!-- libro 5 -->
+      <ion-col>
+        <img src="https://m.media-amazon.com/images/I/91nsgvzjqJL.jpg">
+        <ion-button id="open-modal5" expand="block">Read more</ion-button>
+        <ion-modal #modal5 trigger="open-modal5">
+          <ng-template>
+            <ion-header>
+              <ion-toolbar>
+                <ion-buttons slot="start">
+                  <ion-button (click)="modal5.dismiss()">Close</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content>
+              <div id = "container">
+                <p>
+                  Autrice: J. K. Rowling<br>
+                  Anno di rilascio: 2003<br>
+                  Trama: Mentre si trova confinato contro la sua volontà a Privet Drive, Harry scopre che Albus Silente è a capo di 
+                  una organizzazione segreta che ha il compito di contrapporsi e possibilmente sconfiggere Lord Voldemort.
+              </div>
+            </ion-content>
+            <ion-button>Read the book</ion-button>
+          </ng-template>
+        </ion-modal>
+      </ion-col>
+      <!-- libro 6 -->
+      <ion-col>
+        <img src="https://m.media-amazon.com/images/I/A1wUgQbXfgL.jpg">
+        <ion-button id="open-modal6" expand="block">Read more</ion-button>
+        <ion-modal #modal6 trigger="open-modal6">
+          <ng-template>
+            <ion-header>
+              <ion-toolbar>
+                <ion-buttons slot="start">
+                  <ion-button (click)="modal6.dismiss()">Close</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content>
+              <div id = "container">
+                <p>
+                  Autrice: J. K. Rowling<br>
+                  Anno di rilascio: 2005<br>
+                  Trama: Lord Voldemort stringe la sua presa sia sul mondo dei babbani che su quello dei maghi, 
+                  Hogwarts non è più un rifugio sicuro. Harry sospetta che i pericoli possano nascondersi addirittura all'interno del 
+                  castello, ma Silente è deciso a prepararsi per lo scontro conclusivo che sembra prossimo.
+              </div>
+            </ion-content>
+            <ion-button>Read the book</ion-button>
+          </ng-template>
+        </ion-modal>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <!-- libro 7 -->
+      <ion-col>
+        <img src="https://m.media-amazon.com/images/I/71DCa-1brTL.jpg">
+        <ion-button id="open-modal7" expand="block">Read more</ion-button>
+        <ion-modal #modal7 trigger="open-modal7">
+          <ng-template>
+            <ion-header>
+              <ion-toolbar>
+                <ion-buttons slot="start">
+                  <ion-button (click)="modal7.dismiss()">Close</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content>
+              <div id = "container">
+                <p>
+                  Autrice: J. K. Rowling<br>
+                  Anno di rilascio: 2007<br>
+                  Trama: Lord Voldemort tenta di assassinare Harry, ma una reazione inattesa tra le loro due bacchette glielo impedisce.
+                  Harry e i suoi amici Ron Weasley e Hermione Granger non intendono presentarsi a Hogwarts per il loro settimo e 
+                  ultimo anno di studi per dedicarsi invece alla ricerca degli Horcrux di Voldemort.
+              </div>
+            </ion-content>
+            <ion-button>Read the book</ion-button>
+          </ng-template>
+        </ion-modal>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
