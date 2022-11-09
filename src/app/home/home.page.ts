@@ -10,6 +10,7 @@ import PSPDFKit from 'pspdfkit';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage { 
+  public icon: string = 'sunny-outline';
 
   constructor(
     private loadingController: LoadingController,
@@ -56,5 +57,5 @@ export class HomePage {
       this.authService.showAlert("Errore", "Errore nell'eliminazione");
     }
   }
-
+  
 }
