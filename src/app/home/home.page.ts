@@ -33,10 +33,8 @@ export class HomePage {
     await loading.present();
 
     PSPDFKit.load({
-      document: documentUrl,
       container: '',
-      printMode: 'EXPORT_PDF',
-      disableTextSelection: true
+      document: documentUrl,
     });
 
     await loading.dismiss();
