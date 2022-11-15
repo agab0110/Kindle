@@ -24,22 +24,6 @@ export class HomePage {
 
     await loading.dismiss();
   }
-
-  async deleteAccount() {
-    const loading = await this.loadingController.create();
-    await loading.present();
-
-    const deletedUser = this.authService.delete();
-
-    await loading.dismiss();
-
-    if(deletedUser) {
-      this.authService.showAlert("Successo", "Utente eliminato con successo");
-      this.router.navigate(['login']);
-    } else {
-      this.authService.showAlert("Errore", "Errore nell'eliminazione");
-    }
-  }
   
   goTo(saga: string) {
     this.router.navigate(['books', {saga}]);
