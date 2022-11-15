@@ -5,3 +5,13 @@
   margin-left: 50px;
   margin-right: 50px;
 }
+
+ion-content.background {
+  background-color: linear-gradient(to bottom right, rgb(87, 87, 87), rgb(0, 0, 0));
+}
+
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
