@@ -23,11 +23,11 @@ export class RegistrationPage implements OnInit {
   ) { }
 
   get email() {
-    return this.registrationCredentials.get('registrationEmail');
+    return this.registrationCredentials.get('email');
   }
 
   get password() {
-    return this.registrationCredentials.get('registrationPassword');
+    return this.registrationCredentials.get('password');
   }
 
   ngOnInit() {
