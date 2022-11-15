@@ -14,8 +14,8 @@ export class BooksService {
     )
     {}
 
-    getBooks () {
-        this.booksCollection = collection(this.firestore, 'books');
+    getBooks(saga: string) {
+        this.booksCollection = collection(this.firestore, saga);
 
         return collectionData(this.booksCollection, {
             idField: 'id',
