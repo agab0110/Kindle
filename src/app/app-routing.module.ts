@@ -25,6 +25,10 @@ const routes: Routes = [
     redirectTo: '',
     pathMatch: 'full'
   },
+  {
+    path: 'books',
+    loadChildren: () => import('./books/books.module').then( m => m.BooksPageModule)
+  },
   
 ];
 
