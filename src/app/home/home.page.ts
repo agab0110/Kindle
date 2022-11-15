@@ -42,6 +42,6 @@ export class HomePage {
   }
   
   goTo(saga: string) {
-    this.router.navigate(['saga', {saga}]);
+    this.router.navigate(['books', {saga}]);
   }
 }
