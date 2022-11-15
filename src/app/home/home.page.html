@@ -12,10 +12,10 @@
   </ion-toolbar>
 </ion-header>
 
+<!--
 <ion-content class="background">
   <ion-grid>
     <ion-row>
-      <!-- libro 1 -->
       <ion-col>
         <img src="https://m.media-amazon.com/images/I/813azBbGnnL.jpg">
         <ion-button id="open-modal1" expand="block">Read more</ion-button>
@@ -31,18 +31,16 @@
                 <p>
                   Autrice: J. K. Rowling<br>
                   Anno di rilascio: 1997<br>
-                  Trama: A 11 anni, Harry Potter scopre di essere il figlio orfano di due potenti maghi.
-                  Frequenta la scuola di magia e stregoneria di Hogwarts dove scopre la verità su se stesso e sulla morte dei suoi genitori.
+                  
                 </p>
               </div>
             </ion-content>
-            <ion-button color="secondary" (click)="openPdf('gs://project-87ed6.appspot.com/b1.pdf')">
+            <ion-button color="secondary" href='https://firebasestorage.googleapis.com/v0/b/project-87ed6.appspot.com/o/HP_e_la_pietra_filosofale.pdf?alt=media&token=eb7dcf81-f453-43cb-b6c7-4f4be05643f8'>
               Read the book 
             </ion-button>
           </ng-template>
         </ion-modal>
       </ion-col>
-      <!-- libro 2 -->
       <ion-col>
         <img src="https://m.media-amazon.com/images/I/91HfhLiOzyL.jpg">
         <ion-button id="open-modal2" expand="block">Read more</ion-button>
@@ -71,7 +69,6 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <!-- libro 3 -->
       <ion-col>
         <img src="https://m.media-amazon.com/images/I/91AlxXCh2SL.jpg">
         <ion-button id="open-modal3" expand="block">Read more</ion-button>
@@ -98,7 +95,6 @@
           </ng-template>
         </ion-modal>
       </ion-col>
-      <!-- libro 4 -->
       <ion-col>
         <img src="https://m.media-amazon.com/images/I/91sJm25RjuL.jpg">
         <ion-button id="open-modal4" expand="block">Read more</ion-button>
@@ -126,7 +122,6 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <!-- libro 5 -->
       <ion-col>
         <img src="https://m.media-amazon.com/images/I/91nsgvzjqJL.jpg">
         <ion-button id="open-modal5" expand="block">Read more</ion-button>
@@ -152,7 +147,6 @@
           </ng-template>
         </ion-modal>
       </ion-col>
-      <!-- libro 6 -->
       <ion-col>
         <img src="https://m.media-amazon.com/images/I/A1wUgQbXfgL.jpg">
         <ion-button id="open-modal6" expand="block">Read more</ion-button>
@@ -181,7 +175,6 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <!-- libro 7 -->
       <ion-col>
         <img src="https://m.media-amazon.com/images/I/71DCa-1brTL.jpg">
         <ion-button id="open-modal7" expand="block">Read more</ion-button>
@@ -210,4 +203,23 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+</ion-content>
+-->
+<ion-content>
+  <li *ngFor="let book of books | async" (click)="book.expanded = !book.expanded">
+    <ion-card>
+      <img src={{book.image}}/>
+      <ion-card-header>
+        <ion-card-title>{{book.title}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div [hidden]="!book.expanded">
+          {{book.plot}}
+        </div>
+      </ion-card-content>
+      <ion-button href={{book.token}}>
+        Read book
+      </ion-button>
+    </ion-card>
+  </li>
 </ion-content>

@@ -1,22 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
-import PSPDFKit from 'pspdfkit';
+import { Observable } from 'rxjs';
+import { BooksService } from '../services/books.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage { 
-  public icon: string = 'sunny-outline';
+export class HomePage implements OnInit { 
+  books: Observable<any>;
+  title: string;
 
   constructor(
     private loadingController: LoadingController,
     private authService: AuthService,
     private router: Router,
+    private booksService: BooksService
   ) {}
+
+  ngOnInit() {
+    this.books = this.booksService.getBooks();
+  }
 
   async logout() {
     const loading = await this.loadingController.create();
@@ -24,18 +31,6 @@ export class HomePage {
 
     await this.authService.logout();
     this.router.navigateByUrl('/', { replaceUrl: true });
-
-    await loading.dismiss();
-  }
-
-  async openPdf(documentUrl: string) {
-    const loading = await this.loadingController.create();
-    await loading.present();
-
-    PSPDFKit.load({
-      document: documentUrl,
-      container: documentUrl
-    });
 
     await loading.dismiss();
   }

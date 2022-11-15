@@ -35,7 +35,6 @@
     "awesome-cordova-plugins": "^5.40.0",
     "cordova-plugin-file-opener2": "^3.0.5",
     "ionicons": "^6.0.3",
-    "pspdfkit": "^2022.5.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
