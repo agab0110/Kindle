@@ -1,17 +1,11 @@
+ion-content.background {
+  --background: linear-gradient(to bottom right, rgba(87, 87, 87), rgba(0, 0, 0));
+}
+
 #container {
   text-align: justify;
 
   margin-top: 70px;
   margin-left: 50px;
   margin-right: 50px;
-}
-
-ion-content.background {
-  background-color: linear-gradient(to bottom right, rgb(87, 87, 87), rgb(0, 0, 0));
-}
-
-li {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
 }

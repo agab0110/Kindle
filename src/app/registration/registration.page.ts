@@ -46,10 +46,10 @@ export class RegistrationPage implements OnInit {
     await loading.dismiss();
 
     if(user) {
-      this.authService.showAlert('Registration success', 'Welcome');
+      this.authService.showAlert('Benvenuto', 'Utente registrato con successo');
       this.router.navigateByUrl('/home', { replaceUrl: true });
     } else {
-      this.authService.showAlert('Registration failed', 'Please try again');
+      this.authService.showAlert('Registrazione fallita', 'Si prega di riprovare');
     }
   }
 
