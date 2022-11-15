@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="background">
   <li *ngFor="let book of books | async" (click)="book.expanded = !book.expanded">
     <ion-card>
       <img src={{book.image}}/>
