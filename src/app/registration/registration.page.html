@@ -9,13 +9,13 @@
 
     <ion-item fill="solid" class="ion-input-email">
       <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" formControlName="registrationEmail"></ion-input>
+      <ion-input type="email" formControlName="email"></ion-input>
       <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Email invalida</ion-note>
     </ion-item>
 
     <ion-item fill="solid" class="ion-input-password">
       <ion-label position="floating">Password</ion-label>
-      <ion-input [type]="type" formControlName="registrationPassword"></ion-input>
+      <ion-input [type]="type" formControlName="password"></ion-input>
       <ion-icon (click)="toggle()" [name]="icon" slot="end"></ion-icon>
       <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">
         La password deve essere lunga almeno 6 caratteri

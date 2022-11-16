@@ -13,11 +13,12 @@
       </ion-card-header>
       <ion-card-content>
         <div [hidden]="!book.expanded">
-          {{book.plot}}
+          {{book.plot}}<br>
         </div>
       </ion-card-content>
+    
       <ion-button fill="clear" href={{book.token}}>
-        Read book
+        Leggi il libro
       </ion-button>
     </ion-card>
   </li>
