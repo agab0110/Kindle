@@ -1,8 +1,8 @@
 <ion-header>
-  <ion-toolbar>   
-      <ion-button fill="clear" slot="start" (click)="logout()">
-        <ion-icon slot="icon-only" name="log-out"></ion-icon>
-        <ion-label>Logout</ion-label>
+  <ion-toolbar>
+    <ion-title>Kindle</ion-title>
+      <ion-button fill="clear" slot="end" (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out" size="mid"></ion-icon>
       </ion-button>  
   </ion-toolbar>
 </ion-header>
@@ -11,15 +11,15 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <img src="https://m.media-amazon.com/images/I/61xOlCsVfLL.jpg">
+        <img src="../../assets/icon/hp.jpg" alt="">
         <ion-button (click)="goTo('books')" expand="block" fill="clear" shape="round">
-          Leggi Harry potter
+          Elenco libri
         </ion-button>
       </ion-col>
       <ion-col>
         <img src="https://m.media-amazon.com/images/I/71gjt76M3xL.jpg">
         <ion-button (click)="goTo('theLordOfTheRings')" expand="block" fill="clear" shape="round">
-          Leggi Il signore<br>degli anelli
+          Elenco libri
         </ion-button>
       </ion-col>
     </ion-row>
